@@ -1,0 +1,43 @@
+﻿@model WebKhoSachMVC.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Quản lý người dùng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          <p>Tài Khoản</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            <p>Mật Khẩu</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+
+        <dt>
+            <p>Quyền Truy Cập</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuyenTC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IdUser }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>

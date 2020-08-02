@@ -1,0 +1,52 @@
+﻿@model WebKhoSachMVC.Models.KiemKeKho
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Xoá</h2>
+
+<h3>Bạn có chắc chắn muốn xóa?</h3>
+<div>
+    <h4>Kiểm Kê Kho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            <p>Tên Sách</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sach.TenSach)
+        </dd>
+
+        <dt>
+            <p>Mã Nhập Kho</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhapKho.IdNKho)
+        </dd>
+
+
+
+        <dt>
+            <p>Mã Xuất Kho</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XuatKho.IdXKho)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Index")
+        </div>
+    }
+</div>

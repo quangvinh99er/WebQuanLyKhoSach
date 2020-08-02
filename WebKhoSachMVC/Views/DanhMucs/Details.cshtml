@@ -1,0 +1,35 @@
+﻿@model WebKhoSachMVC.Models.DanhMuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Danh mục</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <p>Thể Loại</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai)
+        </dd>
+
+        <dt>
+            <p>Tên Kệ Sách</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeSach.TenKeSach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IdDanhMuc }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebKhoSachMVC.Models.KhoSach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Quản lý kho sách</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Nhập Tên Kho Sách: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+    </p>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Kho
+        </th>
+        <th>
+            Tên Nhân Viên
+        </th>
+        <th>
+            Mã Kiểm Kho
+        </th>
+        <th>
+            Mã Thống Kê Kho
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNhanVien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KiemKeKho.IdKiemKho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThongKeKho.IdTKKho)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.IdKho }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.IdKho }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.IdKho })
+        </td>
+    </tr>
+}
+
+</table>

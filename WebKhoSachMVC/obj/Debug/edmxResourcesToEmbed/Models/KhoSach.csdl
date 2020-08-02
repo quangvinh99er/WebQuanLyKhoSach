@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KhoSachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="IdDanhMuc" />
+    </Key>
+    <Property Name="IdDanhMuc" Type="Int32" Nullable="false" />
+    <Property Name="TheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdKeSach" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KeSach" Relationship="Self.FK_DanhMuc_KeSach" FromRole="DanhMuc" ToRole="KeSach" />
+  </EntityType>
+  <EntityType Name="KeSach">
+    <Key>
+      <PropertyRef Name="IdKeSach" />
+    </Key>
+    <Property Name="IdKeSach" Type="Int32" Nullable="false" />
+    <Property Name="TenKeSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ViTri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DanhMucs" Relationship="Self.FK_DanhMuc_KeSach" FromRole="KeSach" ToRole="DanhMuc" />
+  </EntityType>
+  <EntityType Name="KhoSach">
+    <Key>
+      <PropertyRef Name="IdKho" />
+    </Key>
+    <Property Name="IdKho" Type="Int32" Nullable="false" />
+    <Property Name="TenKho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdTKKho" Type="Int32" Nullable="false" />
+    <Property Name="IdKiemKho" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KiemKeKho" Relationship="Self.FK_KhoSach_KiemKeKho" FromRole="KhoSach" ToRole="KiemKeKho" />
+    <NavigationProperty Name="ThongKeKho" Relationship="Self.FK_KhoSach_ThongKeKho" FromRole="KhoSach" ToRole="ThongKeKho" />
+  </EntityType>
+  <EntityType Name="KiemKeKho">
+    <Key>
+      <PropertyRef Name="IdKiemKho" />
+    </Key>
+    <Property Name="IdKiemKho" Type="Int32" Nullable="false" />
+    <Property Name="IdXKho" Type="Int32" Nullable="false" />
+    <Property Name="IdNKho" Type="Int32" Nullable="false" />
+    <Property Name="IdSach" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KhoSaches" Relationship="Self.FK_KhoSach_KiemKeKho" FromRole="KiemKeKho" ToRole="KhoSach" />
+    <NavigationProperty Name="NhapKho" Relationship="Self.FK_KiemKeKho_NhapKho" FromRole="KiemKeKho" ToRole="NhapKho" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK_KiemKeKho_Sach" FromRole="KiemKeKho" ToRole="Sach" />
+    <NavigationProperty Name="XuatKho" Relationship="Self.FK_KiemKeKho_XuatKho" FromRole="KiemKeKho" ToRole="XuatKho" />
+  </EntityType>
+  <EntityType Name="NhapKho">
+    <Key>
+      <PropertyRef Name="IdNKho" />
+    </Key>
+    <Property Name="IdNKho" Type="Int32" Nullable="false" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="IdSach" Type="Int32" Nullable="false" />
+    <Property Name="Soluongnhap" Type="Int32" />
+    <NavigationProperty Name="KiemKeKhoes" Relationship="Self.FK_KiemKeKho_NhapKho" FromRole="NhapKho" ToRole="KiemKeKho" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK_NhapKho_Sach" FromRole="NhapKho" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="IdSach" />
+    </Key>
+    <Property Name="IdSach" Type="Int32" Nullable="false" />
+    <Property Name="TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GiaThanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NhaXuatBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TacGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NamXB" Type="Int32" Nullable="false" />
+    <Property Name="Soluongphathanh" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KiemKeKhoes" Relationship="Self.FK_KiemKeKho_Sach" FromRole="Sach" ToRole="KiemKeKho" />
+    <NavigationProperty Name="NhapKhoes" Relationship="Self.FK_NhapKho_Sach" FromRole="Sach" ToRole="NhapKho" />
+    <NavigationProperty Name="ThongKeKhoes" Relationship="Self.FK_ThongKeKho_Sach" FromRole="Sach" ToRole="ThongKeKho" />
+    <NavigationProperty Name="XuatKhoes" Relationship="Self.FK_XuatKho_Sach" FromRole="Sach" ToRole="XuatKho" />
+    <Property Name="AnhSach1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ThongKeKho">
+    <Key>
+      <PropertyRef Name="IdTKKho" />
+    </Key>
+    <Property Name="IdTKKho" Type="Int32" Nullable="false" />
+    <Property Name="NgayTK" Type="DateTime" Precision="0" />
+    <Property Name="SoLuongTon" Type="Int32" />
+    <Property Name="IdSach" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KhoSaches" Relationship="Self.FK_KhoSach_ThongKeKho" FromRole="ThongKeKho" ToRole="KhoSach" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK_ThongKeKho_Sach" FromRole="ThongKeKho" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuyenTC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="XuatKho">
+    <Key>
+      <PropertyRef Name="IdXKho" />
+    </Key>
+    <Property Name="IdXKho" Type="Int32" Nullable="false" />
+    <Property Name="NgayXuat" Type="DateTime" Precision="0" />
+    <Property Name="IdSach" Type="Int32" Nullable="false" />
+    <Property Name="Soluongxuat" Type="Int32" />
+    <NavigationProperty Name="KiemKeKhoes" Relationship="Self.FK_KiemKeKho_XuatKho" FromRole="XuatKho" ToRole="KiemKeKho" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK_XuatKho_Sach" FromRole="XuatKho" ToRole="Sach" />
+  </EntityType>
+  <Association Name="FK_DanhMuc_KeSach">
+    <End Role="KeSach" Type="Self.KeSach" Multiplicity="1" />
+    <End Role="DanhMuc" Type="Self.DanhMuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeSach">
+        <PropertyRef Name="IdKeSach" />
+      </Principal>
+      <Dependent Role="DanhMuc">
+        <PropertyRef Name="IdKeSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhoSach_KiemKeKho">
+    <End Role="KiemKeKho" Type="Self.KiemKeKho" Multiplicity="1" />
+    <End Role="KhoSach" Type="Self.KhoSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KiemKeKho">
+        <PropertyRef Name="IdKiemKho" />
+      </Principal>
+      <Dependent Role="KhoSach">
+        <PropertyRef Name="IdKiemKho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhoSach_ThongKeKho">
+    <End Role="ThongKeKho" Type="Self.ThongKeKho" Multiplicity="1" />
+    <End Role="KhoSach" Type="Self.KhoSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongKeKho">
+        <PropertyRef Name="IdTKKho" />
+      </Principal>
+      <Dependent Role="KhoSach">
+        <PropertyRef Name="IdTKKho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KiemKeKho_NhapKho">
+    <End Role="NhapKho" Type="Self.NhapKho" Multiplicity="1" />
+    <End Role="KiemKeKho" Type="Self.KiemKeKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhapKho">
+        <PropertyRef Name="IdNKho" />
+      </Principal>
+      <Dependent Role="KiemKeKho">
+        <PropertyRef Name="IdNKho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KiemKeKho_Sach">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="KiemKeKho" Type="Self.KiemKeKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="IdSach" />
+      </Principal>
+      <Dependent Role="KiemKeKho">
+        <PropertyRef Name="IdSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KiemKeKho_XuatKho">
+    <End Role="XuatKho" Type="Self.XuatKho" Multiplicity="1" />
+    <End Role="KiemKeKho" Type="Self.KiemKeKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XuatKho">
+        <PropertyRef Name="IdXKho" />
+      </Principal>
+      <Dependent Role="KiemKeKho">
+        <PropertyRef Name="IdXKho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhapKho_Sach">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="NhapKho" Type="Self.NhapKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="IdSach" />
+      </Principal>
+      <Dependent Role="NhapKho">
+        <PropertyRef Name="IdSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongKeKho_Sach">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="ThongKeKho" Type="Self.ThongKeKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="IdSach" />
+      </Principal>
+      <Dependent Role="ThongKeKho">
+        <PropertyRef Name="IdSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XuatKho_Sach">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="XuatKho" Type="Self.XuatKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="IdSach" />
+      </Principal>
+      <Dependent Role="XuatKho">
+        <PropertyRef Name="IdSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KhoSachEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
+    <EntitySet Name="KeSaches" EntityType="Self.KeSach" />
+    <EntitySet Name="KhoSaches" EntityType="Self.KhoSach" />
+    <EntitySet Name="KiemKeKhoes" EntityType="Self.KiemKeKho" />
+    <EntitySet Name="NhapKhoes" EntityType="Self.NhapKho" />
+    <EntitySet Name="Saches" EntityType="Self.Sach" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ThongKeKhoes" EntityType="Self.ThongKeKho" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="XuatKhoes" EntityType="Self.XuatKho" />
+    <AssociationSet Name="FK_DanhMuc_KeSach" Association="Self.FK_DanhMuc_KeSach">
+      <End Role="KeSach" EntitySet="KeSaches" />
+      <End Role="DanhMuc" EntitySet="DanhMucs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhoSach_KiemKeKho" Association="Self.FK_KhoSach_KiemKeKho">
+      <End Role="KiemKeKho" EntitySet="KiemKeKhoes" />
+      <End Role="KhoSach" EntitySet="KhoSaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhoSach_ThongKeKho" Association="Self.FK_KhoSach_ThongKeKho">
+      <End Role="ThongKeKho" EntitySet="ThongKeKhoes" />
+      <End Role="KhoSach" EntitySet="KhoSaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KiemKeKho_NhapKho" Association="Self.FK_KiemKeKho_NhapKho">
+      <End Role="NhapKho" EntitySet="NhapKhoes" />
+      <End Role="KiemKeKho" EntitySet="KiemKeKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KiemKeKho_Sach" Association="Self.FK_KiemKeKho_Sach">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="KiemKeKho" EntitySet="KiemKeKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KiemKeKho_XuatKho" Association="Self.FK_KiemKeKho_XuatKho">
+      <End Role="XuatKho" EntitySet="XuatKhoes" />
+      <End Role="KiemKeKho" EntitySet="KiemKeKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhapKho_Sach" Association="Self.FK_NhapKho_Sach">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="NhapKho" EntitySet="NhapKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongKeKho_Sach" Association="Self.FK_ThongKeKho_Sach">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="ThongKeKho" EntitySet="ThongKeKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XuatKho_Sach" Association="Self.FK_XuatKho_Sach">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="XuatKho" EntitySet="XuatKhoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

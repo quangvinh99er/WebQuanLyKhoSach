@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="996bc2cd17cb46939d794e36f70c3d96" Name="Diagram1">
+        <EntityTypeShape EntityType="KhoSachModel.DanhMuc" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.KeSach" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.KhoSach" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.KiemKeKho" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.NhapKho" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.Sach" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.ThongKeKho" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.User" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KhoSachModel.XuatKho" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="KhoSachModel.FK_DanhMuc_KeSach" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_KhoSach_KiemKeKho" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_KhoSach_ThongKeKho" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_KiemKeKho_NhapKho" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_KiemKeKho_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_KiemKeKho_XuatKho" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_NhapKho_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_ThongKeKho_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="KhoSachModel.FK_XuatKho_Sach" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

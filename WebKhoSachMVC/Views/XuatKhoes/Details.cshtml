@@ -1,0 +1,43 @@
+﻿@model WebKhoSachMVC.Models.XuatKho
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Xuất Kho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p>Ngày Xuất</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayXuat)
+        </dd>
+
+        <dt>
+            <p>Số Lượng Xuất</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongxuat)
+        </dd>
+
+        <dt>
+            <p>Tên Sách</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sach.TenSach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IdXKho }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>

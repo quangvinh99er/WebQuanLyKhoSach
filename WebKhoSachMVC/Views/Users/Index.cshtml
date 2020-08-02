@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebKhoSachMVC.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Quản lý người dùng</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Nhập Tên Người Dùng: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+    </p>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tài Khoản
+        </th>
+        <th>
+            Mật Khẩu
+        </th>
+        <th>
+           Quyền Truy Cập
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuyenTC)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.IdUser }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.IdUser }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.IdUser })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model WebKhoSachMVC.Models.KhoSach
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có chắc chắn muốn xóa?</h3>
+<div>
+    <h4>Kho sách</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p>Tên Kho</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKho)
+        </dd>
+
+        <dt>
+            <p>Tên Nhân Viên</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNhanVien)
+        </dd>
+
+        <dt>
+            <p>Mã Kiểm Kho</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KiemKeKho.IdKiemKho)
+        </dd>
+
+        <dt>
+            <p>Mã Thống Kê Kho</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongKeKho.IdTKKho)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Index")
+        </div>
+    }
+</div>

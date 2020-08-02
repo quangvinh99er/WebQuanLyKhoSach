@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebKhoSachMVC.Models.Sach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Quản lý sách</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Nhập Tên Sách: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+    </p>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            Tên Sách
+        </th>
+        <th>
+            Giá thành
+        </th>
+        <th>
+           Nhà Xuất Bản
+        </th>
+        <th>
+           Tác Giả
+        </th>
+        <th>
+            Năm Xuất Bản
+        </th>
+        <th>
+            Số Lượng Phát Hành
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img id="anh-sach" class="py-3" src="@Url.GetImageOrDefault(item)" style="width:100px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaThanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaXuatBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TacGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluongphathanh)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.IdSach }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id=item.IdSach }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.IdSach })
+        </td>
+    </tr>
+}
+
+</table>

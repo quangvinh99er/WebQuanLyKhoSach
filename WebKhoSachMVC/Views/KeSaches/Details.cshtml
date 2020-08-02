@@ -1,0 +1,37 @@
+﻿@model WebKhoSachMVC.Models.KeSach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Kệ Sách</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            <p>Tên Kệ Sách</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKeSach)
+        </dd>
+
+        <dt>
+            <p>Vị Trí</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViTri)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IdKeSach }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>

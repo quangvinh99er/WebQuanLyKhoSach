@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebKhoSachMVC.Models.XuatKho>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Xuất kho</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Ngày Xuất
+        </th>
+        <th>
+            Số Lượng Xuất
+        </th>
+        <th>
+            Tên Sách
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayXuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluongxuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sach.TenSach)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.IdXKho }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.IdXKho }) |
+            @Html.ActionLink("XOá", "Delete", new { id=item.IdXKho })
+        </td>
+    </tr>
+}
+
+</table>

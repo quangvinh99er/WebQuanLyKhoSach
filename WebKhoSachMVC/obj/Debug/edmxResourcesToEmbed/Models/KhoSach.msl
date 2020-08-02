@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KhoSachModelStoreContainer" CdmEntityContainer="KhoSachEntities">
+    <EntitySetMapping Name="DanhMucs">
+      <EntityTypeMapping TypeName="KhoSachModel.DanhMuc">
+        <MappingFragment StoreEntitySet="DanhMuc">
+          <ScalarProperty Name="IdDanhMuc" ColumnName="IdDanhMuc" />
+          <ScalarProperty Name="TheLoai" ColumnName="TheLoai" />
+          <ScalarProperty Name="IdKeSach" ColumnName="IdKeSach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeSaches">
+      <EntityTypeMapping TypeName="KhoSachModel.KeSach">
+        <MappingFragment StoreEntitySet="KeSach">
+          <ScalarProperty Name="IdKeSach" ColumnName="IdKeSach" />
+          <ScalarProperty Name="TenKeSach" ColumnName="TenKeSach" />
+          <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoSaches">
+      <EntityTypeMapping TypeName="KhoSachModel.KhoSach">
+        <MappingFragment StoreEntitySet="KhoSach">
+          <ScalarProperty Name="IdKho" ColumnName="IdKho" />
+          <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="IdTKKho" ColumnName="IdTKKho" />
+          <ScalarProperty Name="IdKiemKho" ColumnName="IdKiemKho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KiemKeKhoes">
+      <EntityTypeMapping TypeName="KhoSachModel.KiemKeKho">
+        <MappingFragment StoreEntitySet="KiemKeKho">
+          <ScalarProperty Name="IdKiemKho" ColumnName="IdKiemKho" />
+          <ScalarProperty Name="IdXKho" ColumnName="IdXKho" />
+          <ScalarProperty Name="IdNKho" ColumnName="IdNKho" />
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhapKhoes">
+      <EntityTypeMapping TypeName="KhoSachModel.NhapKho">
+        <MappingFragment StoreEntitySet="NhapKho">
+          <ScalarProperty Name="IdNKho" ColumnName="IdNKho" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+          <ScalarProperty Name="Soluongnhap" ColumnName="Soluongnhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Saches">
+      <EntityTypeMapping TypeName="KhoSachModel.Sach">
+        <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="AnhSach1" ColumnName="AnhSach" />
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="GiaThanh" ColumnName="GiaThanh" />
+          <ScalarProperty Name="NhaXuatBan" ColumnName="NhaXuatBan" />
+          <ScalarProperty Name="TacGia" ColumnName="TacGia" />
+          <ScalarProperty Name="NamXB" ColumnName="NamXB" />
+          <ScalarProperty Name="Soluongphathanh" ColumnName="Soluongphathanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="KhoSachModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongKeKhoes">
+      <EntityTypeMapping TypeName="KhoSachModel.ThongKeKho">
+        <MappingFragment StoreEntitySet="ThongKeKho">
+          <ScalarProperty Name="IdTKKho" ColumnName="IdTKKho" />
+          <ScalarProperty Name="NgayTK" ColumnName="NgayTK" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="KhoSachModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="QuyenTC" ColumnName="QuyenTC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XuatKhoes">
+      <EntityTypeMapping TypeName="KhoSachModel.XuatKho">
+        <MappingFragment StoreEntitySet="XuatKho">
+          <ScalarProperty Name="IdXKho" ColumnName="IdXKho" />
+          <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
+          <ScalarProperty Name="IdSach" ColumnName="IdSach" />
+          <ScalarProperty Name="Soluongxuat" ColumnName="Soluongxuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

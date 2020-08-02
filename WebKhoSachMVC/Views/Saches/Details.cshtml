@@ -1,0 +1,67 @@
+﻿@model WebKhoSachMVC.Models.Sach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Lockout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Quản lý sách</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p>Tên Sách</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            <p>Giá Thành</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaThanh)
+        </dd>
+
+        <dt>
+            <p>Nhà Xuất Bản</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaXuatBan)
+        </dd>
+
+        <dt>
+            <p>Tác Giả</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TacGia)
+        </dd>
+
+        <dt>
+            <p>Năm Xuất Bản</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamXB)
+        </dd>
+
+        <dt>
+            <p>Số Lượng Phát Hành</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongphathanh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IdSach }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>
